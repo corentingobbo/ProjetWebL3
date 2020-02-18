@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+    <title>Gretagram</title>
+    <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body class="sombre" ng-app="app" ng-controller="ctrl">
+
+    <div class="map-container" style="opacity: 1;">
+        <div id="macarte"></div>
+    </div>
+
+
+    <nav class="container navbar navbar-expand-lg justify-content-between ">
+        <a class="navbar-brand" href="#">
+            <img src="ressources/instagram-light.com.svg" width="30" height="30" alt="">
+        </a>
+        <a class="navbar-brand" href="#">Gretagram</a>
+            <input  class="form-control searchbar" id="searchbar" type="search" placeholder="Search" aria-label="Search">
+
+        <div class="collapse navbar-collapse"  id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Mon compte <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Abonnements</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Abonnés</a>
+                </li>
+            </ul>
+
+        </div>
+        <div class=""style="width: 100px;">
+            
+        </div>
+        <div class="theme-toggler sombre">
+            <div class="theme-toggler2 sombre">
+
+            </div>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
+    <!-- <div class="header container">
+        <div class="row">
+            <div class="col-1">
+                <a class="navbar-brand" href="#">
+                    <img src="ressources/instagram-light.com.svg" width="30" height="30" alt="">
+                </a>
+            </div>
+            <div class="col-7">
+                <div class="searchbar sombre container">
+                    <div class="row">
+                        <div class="col-12">
+                            <input class="form-control" id="searchbar" type="text" placeholder="Search" aria-label="Search">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-4 container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-6">
+                        <a class="navbar-brand" href="#">
+                            <img src="ressources/avatar.svg" width="50" height="50" alt="">
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <div class="theme-toggler sombre">
+                            <div class="theme-toggler2 sombre">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-10 ">
+                <div class="card publication sombre">
+                    <div class="card-header">
+                        <h2 class="sombre">Créer une publication</h1>
+                    </div>
+                    <div class="card-body">
+                        <div class="container-fluid">
+                            <div class="row justify-content-center">
+                                <div class="col-2" style="align-item:center;">
+                                    <img class="avatar-create-publication" src="ressources/avatar.svg" alt="">
+                                </div>
+                                <div contenteditable="true" placeholder="Exprimez vous..." class="col-10 text-create-publication"></div>
+                            </div>
+                        </div>
+                        <!-- <textarea placeholder="Exprimez vous ..." class="text-create-publication" type="text"  name="" value=""></textarea> -->
+
+
+
+                    </div>
+                    <button href="#" class="btn btn-publier btn-primary">Publier</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+    <div class=" container tabs">
+        <div class="row justify-content-center">
+            <button type="button" id="btn-tabs" ng-click="aboFunction()" class="btn-tabs sombre btn  col-2" name="button">Abonnements</button>
+            <button type="button" ng-click="trendFunction()" class="btn-tabs active sombre btn  col-2" name="button">Trend</button>
+            <button type="button" ng-click="procheFunction()" class="btn-tabs sombre btn  col-2" name="button">Proche</button>
+        </div>
+    </div>
+
+    <button style="display:none;" type="button" id="toggler" class="toggler btn btn-dark" name="button">Toggler</button>
+
+    <!-- ========================================================================================== -->
+    <!-- PUBLICATIONS ============================================================================= -->
+    <!-- ========================================================================================== -->
+
+    <div class="container containerPublications" ng-show="trend">
+        <div class="row publicationContainer">
+
+            <div class="col-12 publication sombre" ng-repeat="x in publications">
+                <img src="ressources/profile.svg.png" class="photoProfil" alt="">
+                <p class="nomProfil sombre">{{x.nom}}</p>
+                <p class="publicationDate">{{x.date | date : "dd-mm-yyyy hh:ss"}}</p>
+                <p class="publicationTexte sombre">{{x.msg}}</p>
+                <img src={{x.image}} class="imagePublication" alt="">
+                <div class="likes">
+                    <p class="nbLike sombre">{{x.nblikes}} <span class="coeur"><svg aria-label='J’aime' class='_8-yf5 ' fill='#fff' height='24' viewBox='0 0 48 48' width='24'>
+                                <path clip-rule='evenodd' d='M34.3 3.5C27.2 3.5 24 8.8 24 8.8s-3.2-5.3-10.3-5.3C6.4 3.5.5 9.9.5 17.8s6.1 12.4 12.2 17.8c9.2 8.2 9.8 8.9 11.3 8.9s2.1-.7 11.3-8.9c6.2-5.5 12.2-10 12.2-17.8 0-7.9-5.9-14.3-13.2-14.3zm-1 29.8c-5.4 4.8-8.3 7.5-9.3 8.1-1-.7-4.6-3.9-9.3-8.1-5.5-4.9-11.2-9-11.2-15.6 0-6.2 4.6-11.3 10.2-11.3 4.1 0 6.3 2 7.9 4.2 3.6 5.1 1.2 5.1 4.8 0 1.6-2.2 3.8-4.2 7.9-4.2 5.6 0 10.2 5.1 10.2 11.3 0 6.7-5.7 10.8-11.2 15.6z'
+                                    fill-rule='evenodd'></path>
+                            </svg> </p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ========================================================================================== -->
+    <!-- ABONNEMENTS ============================================================================= -->
+    <!-- ========================================================================================== -->
+
+    <div class="container containerPublications" ng-show="abonnements">
+        <div class="row publicationContainer">
+            <div class="col-12 publication sombre" ng-repeat="x in abos">
+                <img src="ressources/profile.svg.png" class="photoProfil" alt="">
+                <p class="nomProfil sombre">{{x.nom}}</p>
+                <p class="publicationDate">{{x.date | date : "dd-mm-yyyy hh:ss"}}</p>
+                <p class="publicationTexte sombre">{{x.msg}}</p>
+                <img src={{x.image}} class="imagePublication" alt="">
+                <div class="likes">
+                    <p class="nbLike sombre">{{x.nblikes}} <span class="coeur"><svg aria-label='J’aime' class='_8-yf5 ' fill='#fff' height='24' viewBox='0 0 48 48' width='24'>
+                                <path clip-rule='evenodd' d='M34.3 3.5C27.2 3.5 24 8.8 24 8.8s-3.2-5.3-10.3-5.3C6.4 3.5.5 9.9.5 17.8s6.1 12.4 12.2 17.8c9.2 8.2 9.8 8.9 11.3 8.9s2.1-.7 11.3-8.9c6.2-5.5 12.2-10 12.2-17.8 0-7.9-5.9-14.3-13.2-14.3zm-1 29.8c-5.4 4.8-8.3 7.5-9.3 8.1-1-.7-4.6-3.9-9.3-8.1-5.5-4.9-11.2-9-11.2-15.6 0-6.2 4.6-11.3 10.2-11.3 4.1 0 6.3 2 7.9 4.2 3.6 5.1 1.2 5.1 4.8 0 1.6-2.2 3.8-4.2 7.9-4.2 5.6 0 10.2 5.1 10.2 11.3 0 6.7-5.7 10.8-11.2 15.6z'
+                                    fill-rule='evenodd'></path>
+                            </svg> </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================================== -->
+    <!-- PROCHE ============================================================================= -->
+    <!-- ========================================================================================== -->
+
+    <div class="container containerPublications" ng-show="proche">
+        <div class="row publicationContainer">
+            <div class="col-6 col-12-sm container containerPublicationsProche">
+                <div class="col-12 publication sombre" ng-repeat="x in proches">
+                    <img src="ressources/profile.svg.png" class="photoProfil" alt="">
+                    <p class="nomProfil sombre">{{x.nom}}</p>
+                    <p class="publicationDate">{{x.date | date : "dd-mm-yyyy hh:ss"}}</p>
+                    <p class="publicationTexte sombre">{{x.msg}}</p>
+                    <img src={{x.image}} class="imagePublication" alt="">
+                    <div class="likes">
+                        <p class="nbLike sombre">{{x.nblikes}} <span class="coeur"><svg aria-label='J’aime' class='_8-yf5 ' fill='#fff' height='24' viewBox='0 0 48 48' width='24'>
+                                    <path clip-rule='evenodd' d='M34.3 3.5C27.2 3.5 24 8.8 24 8.8s-3.2-5.3-10.3-5.3C6.4 3.5.5 9.9.5 17.8s6.1 12.4 12.2 17.8c9.2 8.2 9.8 8.9 11.3 8.9s2.1-.7 11.3-8.9c6.2-5.5 12.2-10 12.2-17.8 0-7.9-5.9-14.3-13.2-14.3zm-1 29.8c-5.4 4.8-8.3 7.5-9.3 8.1-1-.7-4.6-3.9-9.3-8.1-5.5-4.9-11.2-9-11.2-15.6 0-6.2 4.6-11.3 10.2-11.3 4.1 0 6.3 2 7.9 4.2 3.6 5.1 1.2 5.1 4.8 0 1.6-2.2 3.8-4.2 7.9-4.2 5.6 0 10.2 5.1 10.2 11.3 0 6.7-5.7 10.8-11.2 15.6z'
+                                        fill-rule='evenodd'></path>
+                                </svg> </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 container">
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/publication.js" charset="utf-8"></script>
+    <script src="js/tabs.js" charset="utf-8"></script>
+    <script src="js/map.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        var app = angular.module('app', []);
+
+        window.onresize = (e) => {
+            console.log(window.innerWidth);
+        }
+
+
+        app.controller("ctrl", ($scope) => {
+
+            $scope.publications = [{
+                "nom": "Maurice Lestin",
+                "msg": "Salut Salut les amis mon nom c'est Lestin et pas C'est Lestin.",
+                "image": "ressources/paysage.jpg",
+                "nblikes": 126,
+                "date": new Date()
+            }, {
+                "nom": "Mathilde",
+                "msg": "Coucou Gretagram je suis nouvelle chez toi hihi",
+                "nblikes": 126,
+                "date": new Date()
+            }, {
+                "nom": "Maurice Lestin",
+                "msg": "OOooooh Mathilde, t'ici ?? C'est drole ca parce que je t'aime",
+                "nblikes": 126,
+                "date": new Date()
+            }, {
+                "nom": "Maurice Lestin",
+                "msg": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "image": "ressources/paysage.jpg",
+                "nblikes": 126,
+                "date": new Date()
+            }, {
+                "nom": "Maurice Lestin",
+                "msg": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "image": "ressources/paysage.jpg",
+                "nblikes": 126,
+                "date": new Date()
+            }];
+
+            $scope.abos = [{
+                "nom": "abos",
+                "msg": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "image": "ressources/paysage.jpg",
+                "nblikes": 126,
+                "date": new Date()
+            }, {
+                "nom": "Mathilde",
+                "msg": "Coucou Gretagram je suis nouvelle chez toi hihi",
+                "nblikes": 126,
+                "date": new Date()
+            }, {
+                "nom": "abos",
+                "msg": "OOooooh Mathilde, t'ici ?? C'est drole ca parce que je t'aime",
+                "nblikes": 126,
+                "date": new Date()
+            }, {
+                "nom": "abos",
+                "msg": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "image": "ressources/paysage.jpg",
+                "nblikes": 126,
+                "date": new Date()
+            }, {
+                "nom": "abos",
+                "msg": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "image": "ressources/paysage.jpg",
+                "nblikes": 126,
+                "date": new Date()
+            }];
+
+            $scope.proches = [{
+                "nom": "proche",
+                "msg": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "image": "ressources/paysage.jpg",
+                "nblikes": 126,
+                "date": new Date()
+            }, {
+                "nom": "Mathilde",
+                "msg": "Coucou Gretagram je suis nouvelle chez toi hihi",
+                "nblikes": 126,
+                "date": new Date()
+            }, {
+                "nom": "Maurice Lestin",
+                "msg": "OOooooh Mathilde, t'ici ?? C'est drole ca parce que je t'aime",
+                "nblikes": 126,
+                "date": new Date()
+            }, {
+                "nom": "Maurice Lestin",
+                "msg": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "image": "ressources/paysage.jpg",
+                "nblikes": 126,
+                "date": new Date()
+            }, {
+                "nom": "Maurice Lestin",
+                "msg": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "image": "ressources/paysage.jpg",
+                "nblikes": 126,
+                "date": new Date()
+            }];
+
+            $scope.abonnements = false;
+            $scope.trend = true;
+            $scope.proche = false;
+            $scope.aboFunction = () => {
+                $scope.abonnements = true;
+                $scope.trend = false;
+                $scope.proche = false;
+                $(".map-container").animate({
+                    right: '-1000px'
+                });
+
+            }
+            $scope.trendFunction = () => {
+                $scope.abonnements = false;
+                $scope.trend = true;
+                $scope.proche = false;
+                $(".map-container").animate({
+                    right: '-1000px'
+                });
+
+            }
+            $scope.procheFunction = () => {
+                $scope.abonnements = false;
+                $scope.trend = false;
+                $scope.proche = true;
+                $(".map-container").animate({
+                    right: '10%'
+                });
+            }
+
+        })
+
+
+
+        $(document).ready(() => {
+
+            $('btn').css('transition-duration', '0');
+
+            $.getJSON('data/test.json', (data) => {
+                console.log(data);
+            })
+
+            if (false) {
+                $('*').removeClass('sombre');
+                $('*').addClass('clair');
+            } else {
+                $('*').removeClass('clair');
+                $('*').addClass('sombre');
+            }
+
+            document.body.style.zoom = "80%";
+
+            var sombre = false;
+
+            $(".theme-toggler").click(() => {
+                $('*').toggleClass('sombre');
+                $('*').toggleClass('clair');
+            })
+
+            $('.btn-tabs').click((e) => {
+                var btn = e.target;
+
+                $('.btn-tabs').removeClass('active');
+                $(btn).toggleClass('active');
+                console.log(e.target);
+            })
+
+        });
+
+        jQuery(function($) {
+            $(".test").focusout(function() {
+                var element = $(this);
+                if (!element.text().replace(" ", "").length) {
+                    element.empty();
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
