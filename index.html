@@ -29,9 +29,6 @@
 
 <body class="sombre" ng-app="app" ng-controller="ctrl">
 
-    <div class="map-container" style="opacity: 1;">
-        <div id="macarte"></div>
-    </div>
 
 
     <nav class="container navbar navbar-expand-lg justify-content-between ">
@@ -39,9 +36,9 @@
             <img src="ressources/instagram-light.com.svg" width="30" height="30" alt="">
         </a>
         <a class="navbar-brand" href="#">Gretagram</a>
-            <input  class="form-control searchbar" id="searchbar" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control searchbar" id="searchbar" type="search" placeholder="Search" aria-label="Search">
 
-        <div class="collapse navbar-collapse"  id="navbarNav">
+        <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Mon compte <span class="sr-only">(current)</span></a>
@@ -55,8 +52,8 @@
             </ul>
 
         </div>
-        <div class=""style="width: 100px;">
-            
+        <div class="" style="width: 100px;">
+
         </div>
         <div class="theme-toggler sombre">
             <div class="theme-toggler2 sombre">
@@ -196,10 +193,19 @@
     <!-- ========================================================================================== -->
     <!-- PROCHE ============================================================================= -->
     <!-- ========================================================================================== -->
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="map-container" style="opacity: 1;">
+                <div id="macarte"></div>
+            </div>
+        </div>
+    </div>
 
     <div class="container containerPublications" ng-show="proche">
         <div class="row publicationContainer">
-            <div class="col-6 col-12-sm container containerPublicationsProche">
+            <div class="col-12 col-12-sm container containerPublicationsProche">
+
                 <div class="col-12 publication sombre" ng-repeat="x in proches">
                     <img src="ressources/profile.svg.png" class="photoProfil" alt="">
                     <p class="nomProfil sombre">{{x.nom}}</p>
@@ -214,158 +220,58 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6 container">
-
-            </div>
 
         </div>
     </div>
 
-    <script src="js/publication.js" charset="utf-8"></script>
-    <script src="js/tabs.js" charset="utf-8"></script>
-    <script src="js/map.js" charset="utf-8"></script>
-
     <script type="text/javascript">
         var app = angular.module('app', []);
 
-        window.onresize = (e) => {
-            console.log(window.innerWidth);
-        }
-
-
         app.controller("ctrl", ($scope) => {
-
-            $scope.publications = [{
-                "nom": "Maurice Lestin",
-                "msg": "Salut Salut les amis mon nom c'est Lestin et pas C'est Lestin.",
-                "image": "ressources/paysage.jpg",
-                "nblikes": 126,
-                "date": new Date()
-            }, {
-                "nom": "Mathilde",
-                "msg": "Coucou Gretagram je suis nouvelle chez toi hihi",
-                "nblikes": 126,
-                "date": new Date()
-            }, {
-                "nom": "Maurice Lestin",
-                "msg": "OOooooh Mathilde, t'ici ?? C'est drole ca parce que je t'aime",
-                "nblikes": 126,
-                "date": new Date()
-            }, {
-                "nom": "Maurice Lestin",
-                "msg": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                "image": "ressources/paysage.jpg",
-                "nblikes": 126,
-                "date": new Date()
-            }, {
-                "nom": "Maurice Lestin",
-                "msg": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                "image": "ressources/paysage.jpg",
-                "nblikes": 126,
-                "date": new Date()
-            }];
-
-            $scope.abos = [{
-                "nom": "abos",
-                "msg": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                "image": "ressources/paysage.jpg",
-                "nblikes": 126,
-                "date": new Date()
-            }, {
-                "nom": "Mathilde",
-                "msg": "Coucou Gretagram je suis nouvelle chez toi hihi",
-                "nblikes": 126,
-                "date": new Date()
-            }, {
-                "nom": "abos",
-                "msg": "OOooooh Mathilde, t'ici ?? C'est drole ca parce que je t'aime",
-                "nblikes": 126,
-                "date": new Date()
-            }, {
-                "nom": "abos",
-                "msg": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                "image": "ressources/paysage.jpg",
-                "nblikes": 126,
-                "date": new Date()
-            }, {
-                "nom": "abos",
-                "msg": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                "image": "ressources/paysage.jpg",
-                "nblikes": 126,
-                "date": new Date()
-            }];
-
-            $scope.proches = [{
-                "nom": "proche",
-                "msg": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                "image": "ressources/paysage.jpg",
-                "nblikes": 126,
-                "date": new Date()
-            }, {
-                "nom": "Mathilde",
-                "msg": "Coucou Gretagram je suis nouvelle chez toi hihi",
-                "nblikes": 126,
-                "date": new Date()
-            }, {
-                "nom": "Maurice Lestin",
-                "msg": "OOooooh Mathilde, t'ici ?? C'est drole ca parce que je t'aime",
-                "nblikes": 126,
-                "date": new Date()
-            }, {
-                "nom": "Maurice Lestin",
-                "msg": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                "image": "ressources/paysage.jpg",
-                "nblikes": 126,
-                "date": new Date()
-            }, {
-                "nom": "Maurice Lestin",
-                "msg": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                "image": "ressources/paysage.jpg",
-                "nblikes": 126,
-                "date": new Date()
-            }];
-
-            $scope.abonnements = false;
-            $scope.trend = true;
-            $scope.proche = false;
-            $scope.aboFunction = () => {
-                $scope.abonnements = true;
-                $scope.trend = false;
-                $scope.proche = false;
-                $(".map-container").animate({
-                    right: '-1000px'
-                });
-
-            }
-            $scope.trendFunction = () => {
+            
+            $.getJSON('data/test.json',(data)=>{
+                console.log(data);
+                $scope.publications = data;
+                $scope.abos = data;
+                $scope.proches = data;
+                
                 $scope.abonnements = false;
                 $scope.trend = true;
                 $scope.proche = false;
-                $(".map-container").animate({
-                    right: '-1000px'
-                });
-
-            }
-            $scope.procheFunction = () => {
-                $scope.abonnements = false;
-                $scope.trend = false;
-                $scope.proche = true;
-                $(".map-container").animate({
-                    right: '10%'
-                });
-            }
+                $scope.aboFunction = () => {
+                    $scope.abonnements = true;
+                    $scope.trend = false;
+                    $scope.proche = false;
+                    $(".map-container").animate({
+                        right: '-1000px'
+                    });
+    
+                }
+                $scope.trendFunction = () => {
+                    $scope.abonnements = false;
+                    $scope.trend = true;
+                    $scope.proche = false;
+                    $(".map-container").animate({
+                        right: '-1000px'
+                    });
+    
+                }
+                $scope.procheFunction = () => {
+                    $scope.abonnements = false;
+                    $scope.trend = false;
+                    $scope.proche = true;
+                    $(".map-container").animate({
+                        right: '0%'
+                    });
+                }
+                
+            })
 
         })
 
 
 
-        $(document).ready(() => {
-
-            $('btn').css('transition-duration', '0');
-
-            $.getJSON('data/test.json', (data) => {
-                console.log(data);
-            })
+        $(document).ready(() => {            
 
             if (false) {
                 $('*').removeClass('sombre');
@@ -403,6 +309,10 @@
             });
         });
     </script>
+    
+    <script src="js/publication.js" charset="utf-8"></script>
+    <script src="js/tabs.js" charset="utf-8"></script>
+    <script src="js/map.js" charset="utf-8"></script>
 
 </body>
 

@@ -177,7 +177,7 @@ div[contenteditable]:focus.clair {
     background: #2A343D;
     box-shadow: 7px 7px 17px #222b32,
         -7px -7px 17px #323d48;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .publication.clair {
@@ -185,7 +185,7 @@ div[contenteditable]:focus.clair {
     background: #E3EDF7;
     box-shadow: 7px 7px 17px #bac2cb,
         -7px -7px 17px #ffffff;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .photoProfil {
@@ -293,7 +293,7 @@ div[contenteditable]:focus.clair {
 
 
 .map {
-    position: fixed;
+    position: relative;
     width: 50%;
 }
 
@@ -303,12 +303,11 @@ div[contenteditable]:focus.clair {
 }
 
 .map-container {
+    margin-top: 40px;
     height: 500px;
     width: 500px;
-    position: fixed;
-    top: 50%;
-    -webkit-transform: translateY(-35%);
-    transform: translateY(-35%);
+    position: relative;
     z-index: 2;
     right: -1000px;
+
 }
